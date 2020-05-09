@@ -34,7 +34,7 @@ python train.py \
     --input_type one_hot
 ```
 
-You can change the ```python network_type``` to DDI, PPI, GDI. Please change the data_path accordingly.
+You can change the ```network_type``` to DTI, DDI, PPI, GDI. Please change the data_path accordingly.
 
 In the paper, we use node2vec to initialize the node attributes. But empirically, we find simple one-hot position encoding is also good for SkipGNN. If you want to reproduce the result, you could put the node2vec embedding generated from [this repo](https://github.com/aditya-grover/node2vec) under ```data/DTI/fold1/dti.emb```  and set ```--input_type node2vec```.
 
