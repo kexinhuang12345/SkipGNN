@@ -1,15 +1,15 @@
-<h3 align="center">
-<p> SkipGNN: Predicting Molecular Interactions with Skip-Graph Networks</h3>
+<h1 align="center">
+<p> SkipGNN: Predicting Molecular Interactions with Skip-Graph Networks</h1>
 
 ---
 
-This repository hosts SkipGNN. Molecular interaction networks are powerful resources for the discovery. They are increasingly used with machine learning methods to predict biologically meaningful interactions. While deep learning on graphs has dramatically advanced the prediction prowess, current graph neural network (GNN) methods are optimized for prediction on the basis of direct similarity between interacting nodes. In biological networks, however, similarity between nodes that do not directly interact has proved incredibly useful in the last decade across a variety of interaction networks.
+Molecular interaction networks are powerful resources for the discovery. While deep learning on graphs has dramatically advanced the prediction prowess, current graph neural network (GNN) methods are optimized for prediction on the basis of direct similarity between interacting nodes. In biological networks, however, similarity between nodes that do not directly interact has proved incredibly useful in the last decade across a variety of interaction networks.
 
-Here, we present SkipGNN, a graph neural network approach for the prediction of molecular interactions. SkipGNN predicts molecular interactions by not only aggregating information from direct interactions but also from second-order interactions, which we call skip similarity. In contrast to existing GNNs, SkipGNN receives neural messages from two-hop neighbors as well as immediate neighbors in the interaction network and non-linearly transforms the messages to obtain useful information for prediction. To inject skip similarity into a GNN, we construct a modified version of the original network, called the skip graph. We then develop an iterative fusion scheme that optimizes a GNN using both the skip graph and the original graph. Experiments on four interaction networks, including drug-drug, drug-target, protein-protein, and gene-disease interactions, show that SkipGNN achieves superior and robust performance, outperforming existing methods by up to 28.8% of area under the precision recall curve (PR-AUC). Furthermore, we show that unlike popular GNNs, SkipGNN learns biologically meaningful embeddings and performs especially well on noisy, incomplete interaction networks.
+Here, we present SkipGNN, it predicts molecular interactions by not only aggregating information from direct interactions but also from second-order interactions, which we call skip similarity. In contrast to existing GNNs, SkipGNN receives neural messages from two-hop neighbors as well as immediate neighbors in the interaction network and non-linearly transforms the messages to obtain useful information for prediction. 
 
 
 <p align="center"><img src="fig1.png" alt="fig1" width="400px" /></p>
-(Left) Traditionally, an interaction between nodes A and B implies that A and B are similar and vice versa. (Right) In contrast, in molecular interaction networks, directly interacting entities are not necessarily similar, which has been observed in numerous networks, including genetic interaction networks and protein-protein interaction networks.
+*(Left)* Traditionally, an interaction between nodes A and B implies that A and B are similar and vice versa. *(Right)* In contrast, in molecular interaction networks, directly interacting entities are not necessarily similar, which has been observed in numerous networks, including genetic interaction networks and protein-protein interaction networks.
 
 
 ### Install
@@ -22,7 +22,7 @@ python setup.py install
 
 ### Example
 
-```python
+```
 python train.py \
     --epochs 15 \
     --lr 5e-4 \
@@ -35,7 +35,7 @@ python train.py \
     --input_type one_hot
 ```
 
-You can change the ```python network_type ``` to DDI, PPI, GDI. Please change the data_path accordingly.
+You can change the ```python network_type``` to DDI, PPI, GDI. Please change the data_path accordingly.
 
 In the paper, we use node2vec to initialize the node attributes. But empirically, we find simple one-hot position encoding is also good for SkipGNN. If you want to reproduce the result, you could put the node2vec embedding generated from [this repo](https://github.com/aditya-grover/node2vec) under ```data/DTI/fold1/dti.emb```  and set ```--input_type node2vec```.
 
@@ -58,8 +58,8 @@ We provide the dataset in the [data](data/) folder.
 To integrate the power of skip-graph in your own GNN codes, you could simply apply a new GNN on the skip graph, which is generated using two lines. ```adj``` is a scipy.sparse adjacency matrix for the original graph.
 
 ```python 
-adj2 = adj.dot(adj)
-adj2 = adj2.sign()
+adj_skip = adj.dot(adj)
+adj_skip = adj_skip.sign()
 ```
 
 See [here](SkipGNN/utils.py) for more details.
