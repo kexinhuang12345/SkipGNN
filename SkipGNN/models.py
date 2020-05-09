@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from layers import GraphConvolution, GraphAttentionLayer, SpGraphAttentionLayer
+from layers import GraphConvolution
 from torch.nn.parameter import Parameter
 import math
 
@@ -24,7 +24,6 @@ class SkipGNN(nn.Module):
         
         #skip graph
         self.s_gc1 = GraphConvolution(nfeat, nhid1)
-        self.s_gc2 = GraphConvolution(nhid1, nhid2)
         
         #skip graph for original update
         self.s_gc1_o = GraphConvolution(nfeat, nhid1)
