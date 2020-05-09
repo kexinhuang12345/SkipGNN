@@ -11,7 +11,7 @@ Here, we present SkipGNN, it predicts molecular interactions by not only aggrega
 *(Left)* Traditionally, an interaction between nodes A and B implies that A and B are similar and vice versa. *(Right)* In contrast, in molecular interaction networks, directly interacting entities are not necessarily similar, which has been observed in numerous networks, including genetic interaction networks and protein-protein interaction networks.
 
 
-### Install
+## Install
 
 ```bash
 git clone https://github.com/kexinhuang12345/SkipGNN.git
@@ -19,7 +19,7 @@ cd SkipGNN
 python setup.py install
 ```
 
-### Example
+## Example
 
 ```
 python train.py \
@@ -41,7 +41,7 @@ In the paper, we use node2vec to initialize the node attributes. But empirically
 A Jupyter notebook example is provided in [DEMO](Example_Trian.ipynb).
 
 
-### Dataset
+## Dataset
 
 We provide the dataset in the [data](data/) folder. 
 
@@ -53,7 +53,7 @@ We provide the dataset in the [data](data/) folder.
 | [GDI](data/GDI/) | [DisGeNET](https://www.disgenet.org)| A disease-gene association network betweeen 9,413 genes and 10,370 diseases with 81,746 associations, which are curated from GWAS studies.| [data_process_GDI.ipynb](data/data_process_GDI.ipynb)| 
 
 
-### Skip-Graph Construction
+## Skip-Graph Construction
 To integrate the power of skip-graph in your own GNN codes, you could simply apply a new GNN on the skip graph, which is generated using two lines. ```adj``` is a scipy.sparse adjacency matrix for the original graph.
 
 ```python 
@@ -64,7 +64,7 @@ adj_skip = adj_skip.sign()
 See [here](SkipGNN/utils.py) for more details.
 
 
-### Cite Us
+## Cite Us
 
 ```
 @article{huang2020skipgnn,
@@ -77,6 +77,6 @@ See [here](SkipGNN/utils.py) for more details.
 
 The code framework is based on [pygcn](https://github.com/tkipf/pygcn).
 
-### Contact
+## Contact
 
 Please send questions to [kexinhuang@hsph.harvard.edu](kexinhuang@hsph.harvard.edu) or open an issue.
