@@ -1,7 +1,5 @@
-<h1 align="center">
-<p> SkipGNN: Predicting Molecular Interactions with Skip-Graph Networks</h1>
-
----
+<h2 align="center">
+<p> SkipGNN: Predicting Molecular Interactions with Skip-Graph Networks</h2>
 
 Molecular interaction networks are powerful resources for the discovery. While deep learning on graphs has dramatically advanced the prediction prowess, current graph neural network (GNN) methods are optimized for prediction on the basis of direct similarity between interacting nodes. In biological networks, however, similarity between nodes that do not directly interact has proved incredibly useful in the last decade across a variety of interaction networks.
 
@@ -9,6 +7,7 @@ Here, we present SkipGNN, it predicts molecular interactions by not only aggrega
 
 
 <p align="center"><img src="fig1.png" alt="fig1" width="400px" /></p>
+
 *(Left)* Traditionally, an interaction between nodes A and B implies that A and B are similar and vice versa. *(Right)* In contrast, in molecular interaction networks, directly interacting entities are not necessarily similar, which has been observed in numerous networks, including genetic interaction networks and protein-protein interaction networks.
 
 
