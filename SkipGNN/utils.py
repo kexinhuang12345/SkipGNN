@@ -115,7 +115,7 @@ def load_data_link_prediction_DDI(path, inp):
     edges_unordered = df_data_t[['Drug1_ID', 'Drug2_ID']].values    
     
     if inp == 'node2vec':
-        emb = pd.read_csv(path + 'ddi_fold'+path[-1]+'.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
+        emb = pd.read_csv(path + 'ddi.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
         for i in np.setdiff1d(np.arange(1514), emb.index.values):
             emb.loc[i] = (np.sum(emb.values, axis = 0)/emb.values.shape[0])
         features = emb.sort_index().values
@@ -167,7 +167,7 @@ def load_data_link_prediction_PPI(path, inp):
     edges_unordered = df_data_t[['Protein1_ID', 'Protein2_ID']].values    
     
     if inp == 'node2vec':
-        emb = pd.read_csv(path + 'ppi_fold'+path[-1]+'.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
+        emb = pd.read_csv(path + 'ppi.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
         for i in np.setdiff1d(np.arange(5604), emb.index.values):
             emb.loc[i] = (np.sum(emb.values, axis = 0)/emb.values.shape[0])
         features = emb.sort_index().values
@@ -217,7 +217,7 @@ def load_data_link_prediction_DTI(path, inp):
     edges_unordered = df_data_t[['Drug_ID', 'Protein_ID']].values    
     
     if inp == 'node2vec':
-        emb = pd.read_csv(path + 'dti_fold'+path[-1]+'.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
+        emb = pd.read_csv(path + 'dti.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
         for i in np.setdiff1d(np.arange(7343), emb.index.values):
             emb.loc[i] = (np.sum(emb.values, axis = 0)/emb.values.shape[0])
         features = emb.sort_index().values
@@ -268,7 +268,7 @@ def load_data_link_prediction_GDI(path, inp):
     edges_unordered = df_data_t[['Gene_ID', 'Disease_ID']].values
     
     if inp == 'node2vec':
-        emb = pd.read_csv(path + 'gdi_fold'+path[-1]+'.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
+        emb = pd.read_csv(path + 'gdi.emb', skiprows=1, header = None, sep= ' ').sort_values(by = [0]).set_index([0])
         for i in np.setdiff1d(np.arange(19783), emb.index.values):
             emb.loc[i] = (np.sum(emb.values, axis = 0)/emb.values.shape[0])
         features = emb.sort_index().values
